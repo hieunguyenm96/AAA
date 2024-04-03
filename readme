@@ -1,0 +1,12 @@
+# Script AAA
+
+Provide some func.
+
+## Installation
+
+After run `make run`
+then run 
+`
+- export MYSQL_HOME=/usr/include/mariadb/mysql
+- cpanm DBD::mysql@4.052
+`
