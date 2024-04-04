@@ -6,7 +6,9 @@ use warnings;
 use constant AAA_INTERNAL_ERROR => -2;
 
 sub bill_call {
-	my ($duration, $customer) = @_;
+	my ($input) = @_;
+
+    my ($duration, $customer) = split(',', $input);
 
 	return do_billing($duration, $customer);
 }
@@ -25,7 +27,9 @@ sub do_billing {
 }
 
 sub compare_float_with_operator {
-    my ($num1_str, $num2_str, $operator) = @_;
+    my ($input) = @_;
+
+    my ($num1_str, $num2_str, $operator) = split(',', $input);
     
     my $num1 = 0 + $num1_str;  # Convert string to floating-point number
     my $num2 = 0 + $num2_str;  # Convert string to floating-point number
@@ -50,10 +54,10 @@ sub compare_float_with_operator {
 
 # Example usage for compare_float_with_operator
 # my $num1_str = "0.2";
-# my $num2_str = "0.2";
+# my $num2_str = "0.3";
 # my $operator = '==';  # Specify the comparison operator
 
-# my $result = compare_float_with_operator($num1_str, $num2_str, $operator);
+# my $result = compare_float_with_operator($num1_str . ',' . $num2_str . ',' . $operator);
 # if ($result) {
 #     print "The numbers satisfy the comparison.\n";
 # } else {
@@ -61,6 +65,6 @@ sub compare_float_with_operator {
 # }
 
 # Example usage for bill_call
-# bill_call(2, "HCM");
+# bill_call('2,HCM');
 
 1;
