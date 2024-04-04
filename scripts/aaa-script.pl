@@ -61,6 +61,6 @@ sub compare_float_with_operator {
 # }
 
 # Example usage for bill_call
-bill_call(2, "HCM");
+# bill_call(2, "HCM");
 
 1;
