@@ -1,5 +1,3 @@
- #!/usr/local/bin/perl -l
-
 use DBI;
 use DBD::mysql;
 
