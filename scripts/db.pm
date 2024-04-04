@@ -1,6 +1,9 @@
 use DBI;
 use DBD::mysql;
+use lib '/usr/local/lib64/kamailio/perl/';
 use Kamailio qw ( log );
+use Kamailio::Constants;
+use Kamailio::Message;
 
 # Specify the path to your .env file
 my $env_file = './.env';
