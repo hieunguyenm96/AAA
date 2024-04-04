@@ -1,5 +1,6 @@
 use DBI;
 use DBD::mysql;
+use Kamailio qw ( log );
 
 # Specify the path to your .env file
 my $env_file = './.env';
@@ -36,7 +37,7 @@ sub update_customer_credit($$$)
 {
 	my ($dbh, $customer, $duration)	= @_;
 
-    print "customer: $customer, duration: $duration\n";
+    log(L_INFO, "Charge for customer [$customer] with duration [$duration]\n");
 	
 	$dbh->do("UPDATE credit_card SET credit_money = credit_money - ($duration * cps) WHERE customer_id = '$customer'") or die("$!\n");
 }
