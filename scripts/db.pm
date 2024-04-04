@@ -35,6 +35,8 @@ sub connect_to_db($$$$)
 sub update_customer_credit($$$)
 {
 	my ($dbh, $customer, $duration)	= @_;
+
+    print "customer: $customer, duration: $duration\n";
 	
 	$dbh->do("UPDATE credit_card SET credit_money = credit_money - ($duration * cps) WHERE customer_id = '$customer'") or die("$!\n");
 }
