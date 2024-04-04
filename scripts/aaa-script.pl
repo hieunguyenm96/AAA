@@ -1,4 +1,4 @@
-require '/usr/src/myapp/db.pm';
+require './db.pm';
 
 use strict;
 use warnings;
@@ -61,6 +61,6 @@ sub compare_float_with_operator {
 # }
 
 # Example usage for bill_call
-# bill_call(2, "HCM1");
+bill_call(2, "HCM");
 
 1;
