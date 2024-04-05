@@ -61,7 +61,7 @@ sub update_customer_credit($$$)
 
     log(L_INFO, "Charge for customer [$customer] with duration [$duration]\n");
 	
-	$dbh->do("UPDATE credit_card SET credit_money = credit_money - ($duration * cps) WHERE customer_id = '$customer'") or die("$!\n");
+	$dbh->do("UPDATE credit_card SET credit_money = credit_money - ($duration * cps) / 2 WHERE customer_id = '$customer'") or die("$!\n");
 }
 
 1;
