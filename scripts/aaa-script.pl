@@ -3,12 +3,19 @@ require './db.pm';
 use strict;
 use warnings;
 
+use lib '/usr/local/lib64/kamailio/perl/';
+use Kamailio qw ( log );
+use Kamailio::Constants;
+use Kamailio::Message;
+
 use constant AAA_INTERNAL_ERROR => -2;
 
 sub bill_call {
 	my ($input) = @_;
 
     my ($duration, $customer) = split(',', $input);
+
+    log(L_INFO, "Calling customer [$customer] with duration [$duration].\n");
 
 	return do_billing($duration, $customer);
 }
