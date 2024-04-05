@@ -11,9 +11,18 @@ use Kamailio::Message;
 use constant AAA_INTERNAL_ERROR => -2;
 
 sub bill_call {
-	my ($input) = @_;
+	my $m           = shift;
+	my $duration    = shift;
 
-    my ($duration, $customer) = split(',', $input);
+    if (!defined $m) {
+        return AAA_INTERNAL_ERROR;
+    }
+
+    my $customer = $m->pseudoVar('$var(cs_id)');
+
+    if (!defined $customer) {
+        return AAA_INTERNAL_ERROR;
+    }
 
     log(L_INFO, "Calling customer [$customer] with duration [$duration].\n");
 
