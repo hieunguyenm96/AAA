@@ -33,6 +33,9 @@ sub do_billing {
     log(L_INFO, "Start billing.\n");
 
 	my ($duration, $customer) = @_;
+
+    log(L_INFO, "Billing for customer [$customer] with duration [$duration]\n");
+
 	my $dbh	= connect_to_cnxcc_db();
 
 	if (!defined $dbh) {

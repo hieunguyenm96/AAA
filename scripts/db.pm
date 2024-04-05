@@ -23,15 +23,24 @@ my $K_USER = $ENV{'K_USER'};
 my $K_PWD = $ENV{'K_PWD'};
 my $K_HOST = $ENV{'K_HOST'};
 
+log(L_INFO, "K_DB: $K_DB\n");
+log(L_INFO, "K_USER: $K_USER\n");
+log(L_INFO, "K_PWD: $K_PWD\n");
+log(L_INFO, "K_HOST: $K_HOST\n");
+
 sub connect_to_cnxcc_db()
 {
+    log(L_INFO, "Connect to cnxcc database.\n");
 	return connect_to_db($K_DB, $K_HOST, $K_USER, $K_PWD);
 }
 
 sub connect_to_db($$$$)
 {
+    log(L_INFO, "Connect to database.\n");
 	my ($db, $host, $user, $pwd) 	= @_;	
     my $dsn = "DBI:mysql:$db:$host";
+
+    log(L_INFO, "DSN: $dsn\n");
 
     return DBI->connect($dsn, $user, $pwd) || die "Could not connect to database: $DBI::errstr";
 }
