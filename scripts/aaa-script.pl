@@ -34,6 +34,7 @@ sub do_billing {
 	my $dbh	= connect_to_cnxcc_db();
 
 	if (!defined $dbh) {
+        log(L_ERR, "Could not connect to database.\n");
 		return AAA_INTERNAL_ERROR;
 	}
 
