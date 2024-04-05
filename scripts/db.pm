@@ -29,10 +29,16 @@ log(L_INFO, "K_USER: $K_USER\n");
 log(L_INFO, "K_PWD: $K_PWD\n");
 log(L_INFO, "K_HOST: $K_HOST\n");
 
+use constant K_DB         => 'kamailio';
+use constant K_USER       => 'kamailio';
+use constant K_PWD        => 'kamailiorw';
+use constant K_HOST       => 'localhost';
+
 sub connect_to_cnxcc_db()
 {
     log(L_INFO, "Connecting to database.\n");
-	return connect_to_db($K_DB, $K_HOST, $K_USER, $K_PWD);
+	# return connect_to_db($K_DB, $K_HOST, $K_USER, $K_PWD);
+    return connect_to_db(K_DB, K_HOST, K_USER, K_PWD);
 }
 
 sub connect_to_db($$$$)
