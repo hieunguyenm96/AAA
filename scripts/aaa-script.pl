@@ -1,7 +1,8 @@
-require './db.pm';
 
 use strict;
 use warnings;
+
+require './db.pm';
 
 use lib '/usr/local/lib64/kamailio/perl/';
 use Kamailio qw ( log );
