@@ -39,6 +39,8 @@ sub do_billing {
 
     update_customer_credit($dbh, $customer, $duration);
 
+    log(L_INFO, "Done billing for customer [$customer].\n");
+
 	return 1;
 }
 
