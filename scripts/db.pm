@@ -7,27 +7,27 @@ use Kamailio::Constants;
 use Kamailio::Message;
 
 # Specify the path to your .env file
-my $env_file = './.env';
+# my $env_file = './.env';
 
-# Read the .env file and parse the environment variables
-open(my $fh, '<', $env_file) or die "Could not open file '$env_file' $!";
-while (my $line = <$fh>) {
-    chomp $line;
-    my ($key, $value) = split('=', $line, 2);
-    $ENV{$key} = $value;
-}
-close($fh);
+# # Read the .env file and parse the environment variables
+# open(my $fh, '<', $env_file) or die "Could not open file '$env_file' $!";
+# while (my $line = <$fh>) {
+#     chomp $line;
+#     my ($key, $value) = split('=', $line, 2);
+#     $ENV{$key} = $value;
+# }
+# close($fh);
 
-# Access the environment variables
-my $K_DB = $ENV{'K_DB'};
-my $K_USER = $ENV{'K_USER'};
-my $K_PWD = $ENV{'K_PWD'};
-my $K_HOST = $ENV{'K_HOST'};
+# # Access the environment variables
+# my $K_DB = $ENV{'K_DB'};
+# my $K_USER = $ENV{'K_USER'};
+# my $K_PWD = $ENV{'K_PWD'};
+# my $K_HOST = $ENV{'K_HOST'};
 
-log(L_INFO, "K_DB: $K_DB\n");
-log(L_INFO, "K_USER: $K_USER\n");
-log(L_INFO, "K_PWD: $K_PWD\n");
-log(L_INFO, "K_HOST: $K_HOST\n");
+# log(L_INFO, "K_DB: $K_DB\n");
+# log(L_INFO, "K_USER: $K_USER\n");
+# log(L_INFO, "K_PWD: $K_PWD\n");
+# log(L_INFO, "K_HOST: $K_HOST\n");
 
 use constant K_DB         => 'kamailio';
 use constant K_USER       => 'kamailio';
