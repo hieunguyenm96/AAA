@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-require './db.pm';
+require '/usr/local/etc/kamailio/AAA/scripts/db.pm';
 
 use lib '/usr/local/lib64/kamailio/perl/';
 use Kamailio qw ( log );
@@ -55,6 +55,8 @@ sub compare_float_with_operator {
     my ($input) = @_;
 
     my ($num1_str, $num2_str, $operator) = split(',', $input);
+
+    log(L_INFO, "Input: $num1_str, $operator, $num2_str\n");
     
     my $num1 = 0 + $num1_str;  # Convert string to floating-point number
     my $num2 = 0 + $num2_str;  # Convert string to floating-point number
