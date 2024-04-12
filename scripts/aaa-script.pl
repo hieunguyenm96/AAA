@@ -77,9 +77,9 @@ sub compare_float_with_operator {
         return 1;
     } elsif ($operator eq '>=' && $num1 >= $num2) {
         return 1;
-    } else {
-        return 0;
     }
+
+    return 0;
 }
 
 # Example usage for compare_float_with_operator
