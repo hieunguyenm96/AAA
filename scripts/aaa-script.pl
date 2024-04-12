@@ -54,9 +54,11 @@ sub do_billing {
 sub compare_float_with_operator {
     my ($input) = @_;
 
+    log(L_INFO, "compare_float_with_operator >>> input: $input\n");
+
     my ($num1_str, $num2_str, $operator) = split(',', $input);
 
-    log(L_INFO, "Input: $num1_str, $operator, $num2_str\n");
+    log(L_INFO, "compare_float_with_operator >>> input: $num1_str, $operator, $num2_str\n");
     
     my $num1 = 0 + $num1_str;  # Convert string to floating-point number
     my $num2 = 0 + $num2_str;  # Convert string to floating-point number
