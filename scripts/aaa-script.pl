@@ -52,8 +52,8 @@ sub do_billing {
 }
 
 sub compare_float_with_operator {
-    my $m           = shift;
-	my $num1    = shift;
+    my $m    = shift;
+	my $num1 = shift;
 
     if (!defined $m) {
         return AAA_INTERNAL_ERROR;
@@ -80,7 +80,7 @@ sub compare_float_with_operator {
     }
 
     log(L_INFO, " >>> return 0\n");
-    return 0;
+    return 1;
 }
 
 # Example usage for compare_float_with_operator
