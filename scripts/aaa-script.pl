@@ -58,10 +58,9 @@ sub compare_float_with_operator {
     if (!defined $m) {
         return AAA_INTERNAL_ERROR;
     }
-    log(L_INFO, " >>> AAA_SCRIPT\n");
-    return 1;
-    my $operator = $m->pseudoVar('$var(operator)');
+
     my $num2 = $m->pseudoVar('$var(num2)');
+    my $operator = $m->pseudoVar('$var(operator)');
 
     log(L_INFO, " >>> input: $num1, $num2, $operator\n");
     
