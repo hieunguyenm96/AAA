@@ -52,32 +52,33 @@ sub do_billing {
 }
 
 sub compare_float_with_operator {
-    my ($input) = @_;
+    my $m           = shift;
+	my $num1    = shift;
 
-    log(L_INFO, "compare_float_with_operator >>> input: $input\n");
+    if (!defined $m) {
+        return AAA_INTERNAL_ERROR;
+    }
 
-    my ($num1_str, $num2_str, $operator) = split(',', $input);
+    my $operator = $m->pseudoVar('$var(operator)');
+    my $num2 = $m->pseudoVar('$var(num2)');
 
-    log(L_INFO, "compare_float_with_operator >>> input: $num1_str, $operator, $num2_str\n");
-    
-    my $num1 = 0 + $num1_str;  # Convert string to floating-point number
-    my $num2 = 0 + $num2_str;  # Convert string to floating-point number
+    log(L_INFO, "compare_float_with_operator >>> input: $num1, $num2, $operator\n");
     
     # Perform the comparison based on the specified operator
-    if ($operator eq '==') {
-        return $num1 == $num2;
-    } elsif ($operator eq '!=') {
-        return $num1 != $num2;
-    } elsif ($operator eq '<') {
-        return $num1 < $num2;
-    } elsif ($operator eq '>') {
-        return $num1 > $num2;
-    } elsif ($operator eq '<=') {
-        return $num1 <= $num2;
-    } elsif ($operator eq '>=') {
-        return $num1 >= $num2;
+    if ($operator eq '==' && $num1 == $num2) {
+        return 1;
+    } elsif ($operator eq '!=' && $num1 != $num2) {
+        return 1;
+    } elsif ($operator eq '<' && $num1 < $num2) {
+        return 1;
+    } elsif ($operator eq '>' && $num1 > $num2) {
+        return 1;
+    } elsif ($operator eq '<=' && $num1 <= $num2) {
+        return 1;
+    } elsif ($operator eq '>=' && $num1 >= $num2) {
+        return 1;
     } else {
-        die "Unsupported operator: $operator";
+        return 0;
     }
 }
 
