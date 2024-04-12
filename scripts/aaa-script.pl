@@ -66,21 +66,21 @@ sub compare_float_with_operator {
     
     # Perform the comparison based on the specified operator
     if ($operator eq '==' && $num1 == $num2) {
-        return "true";
+        return 1;
     } elsif ($operator eq '!=' && $num1 != $num2) {
-        return "true";
+        return 1;
     } elsif ($operator eq '<' && $num1 < $num2) {
-        return "true";
+        return 1;
     } elsif ($operator eq '>' && $num1 > $num2) {
-        return "true";
+        return 1;
     } elsif ($operator eq '<=' && $num1 <= $num2) {
-        return "true";
+        return 1;
     } elsif ($operator eq '>=' && $num1 >= $num2) {
-        return "true";
+        return 1;
     }
 
-    log(L_INFO, " >>> return false\n");
-    return "false";
+    log(L_INFO, " >>> return -1\n");
+    return -1;
 }
 
 # Example usage for compare_float_with_operator
