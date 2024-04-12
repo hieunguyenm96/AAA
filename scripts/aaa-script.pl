@@ -79,6 +79,7 @@ sub compare_float_with_operator {
         return 1;
     }
 
+    log(L_INFO, "compare_float_with_operator >>> return 0\n");
     return 0;
 }
 
