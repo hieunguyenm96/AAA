@@ -58,11 +58,12 @@ sub compare_float_with_operator {
     if (!defined $m) {
         return AAA_INTERNAL_ERROR;
     }
-
+    log(L_INFO, " >>> AAA_SCRIPT\n");
+    return 1;
     my $operator = $m->pseudoVar('$var(operator)');
     my $num2 = $m->pseudoVar('$var(num2)');
 
-    log(L_INFO, "compare_float_with_operator >>> input: $num1, $num2, $operator\n");
+    log(L_INFO, " >>> input: $num1, $num2, $operator\n");
     
     # Perform the comparison based on the specified operator
     if ($operator eq '==' && $num1 == $num2) {
@@ -79,7 +80,7 @@ sub compare_float_with_operator {
         return 1;
     }
 
-    log(L_INFO, "compare_float_with_operator >>> return 0\n");
+    log(L_INFO, " >>> return 0\n");
     return 0;
 }
 
